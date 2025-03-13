@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for extreme-startup-player
+# fly.toml app configuration file generated for SimpleHttp4kServer
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'extreme-startup-player'
+app = 'Simple-Http4k-Server'
 primary_region = 'lhr'
 
 [build]

@@ -1,13 +1,11 @@
-This is a starting point for a Kotlin http4k player of the Extreme Startup game devised by [Robert Chatley](https://github.com/rchatley).
-
-	“teams can compete to build a software product that satisfies market demand.” (Rob Chatley)
+This is a simple web server written in kotlin, using [http4k](https://www.http4k.org/).
 
 # Steps to get started
 
 1. Login to https://github.com/
 2. Fork this repo
 3. Clone your fork on your machine:
-    - ```git clone git@github.com:<your-username>/ExtremeStartupHttp4kServer.git```
+    - ```git clone git@github.com:<your-username>/SimpleHttp4kServer.git```
 4. Make sure you can build the service on your machine:
     - ```./gradlew build```
 5. _Optionally_, you can run the service on your machine:
@@ -57,7 +55,7 @@ fly auth login
 ```
 2. Edit fly.toml so your service gets a unique URL (for example):
 ```bash
-sed -i .back "s/extreme-startup-player/extreme-startup-player-$USER/g" fly.toml
+sed -i .back "s/SimpleHttp4kServer/SimpleHttp4kServer-$USER/g" fly.toml
 ```
 3. commit and push this change
 4. "Launch" the app to deploy it for the first time to Fly.io - you only have to do this once
@@ -74,7 +72,7 @@ n
 ```
 If this has worked, you should see a message like:
 ```text
-Visit your newly deployed app at https://extreme-startup-player-ivan.fly.dev/
+Visit your newly deployed app at https://SimpleHttp4kServer-ivan.fly.dev/
 ```
 5. deploy to fly with "deploy" instead of "launch"
 ```bash
@@ -82,7 +80,7 @@ fly deploy
 ```
 6. Open a browser on the URL of the deployed service
 ```bash
-open "https://extreme-startup-player-$USER.fly.dev/"
+open "https://SimpleHttp4kServer-$USER.fly.dev/"
 ```
 7. Set up GitHub Actions CD pipeline:
     - Generate a token for Fly.io
@@ -92,7 +90,6 @@ fly tokens create deploy -x 999999h
 - Go to the GitHub “Settings” for your repository where you’ll find “Secrets and variables” and click on “Actions”
 - In the “Repository Secrets” section, add “New repository secret” with name FLY_API_TOKEN and the value as just generated.
 - Make sure your pipeline setup is working by making a change to the HTML in the class HomePage and seeing that it changes in the deployed service.
-8. Join the game, see: https://extreme-startup.fly.dev/ (you will be given the `game id` in the lab)
 
 # Troubleshooting
 
@@ -109,16 +106,16 @@ You can replicate what it is doing on your machine if you have Docker installed.
 
 1. build docker image
 ```bash
-docker build -t extreme_startup_player .
+docker build -t SimpleHttp4kServer .
 ```
 2. run docker container based on that image
 ```bash
-docker run -p 8124:8124 --name extreme_startup_player extreme_startup_player
+docker run -p 8124:8124 --name SimpleHttp4kServer SimpleHttp4kServer
 ```
 3. See it running: http://localhost:8124/
 4. run docker container based on that image
 ```bash
-docker rm -f extreme_startup_player
+docker rm -f SimpleHttp4kServer
 ```
 5. cleanup
 ```bash

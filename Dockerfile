@@ -4,4 +4,4 @@ COPY . /code/
 WORKDIR /code
 RUN gradle clean build shadowJar
 EXPOSE 8124
-CMD java -jar build/libs/ExtremeStartupHttp4kServer.jar
+CMD java -jar build/libs/SimpleHttp4kServer.jar
