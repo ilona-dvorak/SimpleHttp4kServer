@@ -8,12 +8,12 @@ This is a simple web server written in kotlin, using [http4k](https://www.http4k
     - ```git clone git@github.com:<your-username>/SimpleHttp4kServer.git```
 4. Make sure you can build the service on your machine:
     - ```./gradlew build```
-5. _Optionally_, you can run the service on your machine:
+5. You can run the service on your machine:
     - ```./gradlew run```
     - open http://127.0.0.1:8124/
     - You should see:
-        - ![image](Screenshot.png)
-    - <code style="color:red">Stop the server</code>
+        - <img src="Screenshot.png" width="500px"/>
+6. <code style="color:red">Stop the server</code> by pressing ctrl-c in the terminal where you ran it from
 
 ## Deploying the service
 
