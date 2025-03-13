@@ -95,6 +95,11 @@ fly tokens create deploy -x 999999h
 mkdir -p .github/workflows
 git mv fly-deploy.yml .github/workflows/fly-deploy.yml
 ```
+9. Commit and push
+10. Make a change to HomePage and commit and push
+11. Look in GitHub "Actions" tab for your repository
+12. You should see your GitHub action running
+13. Once this has finished, you should see that your changes have been deployed to your running service
 
 # Troubleshooting
 
