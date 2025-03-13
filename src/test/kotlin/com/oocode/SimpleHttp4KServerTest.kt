@@ -13,7 +13,7 @@ import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 
-class ExtremeStartupHttp4kServerTest {
+class SimpleHttp4KServerTest {
     // This is how you'd typically test http4k services
     @Test
     fun canAnswerMyName() {
@@ -23,28 +23,5 @@ class ExtremeStartupHttp4kServerTest {
     @Test
     fun showsHomePageIfMissingQueryString() {
         assertThat(app(Request(GET, "/")), hasBody(containsSubstring("<html>")))
-    }
-
-    // Below here tests this http4k service by starting it, which is often overkill
-    // Included here to show the http4k equivalent of
-    // ExtremeStartupHttpServerTest in https://github.com/ivanmoore/extreme_startup_player
-    @Test
-    fun `canAnswerMyName using real running service`() {
-        val httpClient = JavaHttpClient()
-        assertThat(httpClient(Request(GET, "http://localhost:8124?q=What+is+your+name%3F")), hasBody("Someone"))
-    }
-
-    companion object {
-        @JvmStatic
-        @BeforeAll
-        fun startServer() {
-            ExtremeStartupHttp4kServer.http4kServer.start()
-        }
-
-        @JvmStatic
-        @AfterAll
-        fun stopServer() {
-            ExtremeStartupHttp4kServer.http4kServer.stop()
-        }
     }
 }
