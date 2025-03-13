@@ -32,7 +32,7 @@ private object HomePage {
 <html>
     <head><script src="https://unpkg.com/htmx.org@2.0.4"></script></head>
     <body>
-        <h1>xSimple http4k web service</h1>
+        <h1>Simple fff http4k web service</h1>
         <p>This is a minimal web app using http4k</p>
         <ul>
             Try these questions:
