@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for simplehttp4kserver-ivanmoore
+# fly.toml app configuration file generated for simplehttp4kserver-ivanmoore on 2025-03-13T14:00:56Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'simplehttp4kserver'
+app = 'simplehttp4kserver-ivanmoore'
 primary_region = 'lhr'
 
 [build]

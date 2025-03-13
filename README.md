@@ -67,9 +67,6 @@ Answer the questions as below:
 Would you like to copy its configuration to the new app? (y/N)
 y
 
-Would you like to continue in the web UI? (y/N)
-n
-
 Do you want to tweak these settings before proceeding? (y/N)
 n
 ```
@@ -77,13 +74,13 @@ If this has worked, you should see a message like:
 ```text
 Visit your newly deployed app at https://simplehttp4kserver-ivan.fly.dev/
 ```
-5. deploy to fly with "deploy" instead of "launch"
+5. After having run "launch" once, you can do further deployments with "deploy" instead of "launch"
 ```bash
 fly deploy
 ```
 6. Open a browser on the URL of the deployed service
 ```bash
-open "https://SimpleHttp4kServer-$USER.fly.dev/"
+open "https://simplehttp4kserver-$USER.fly.dev/"
 ```
 7. Set up GitHub Actions CD pipeline:
     - Generate a token for Fly.io
@@ -93,6 +90,11 @@ fly tokens create deploy -x 999999h
 - Go to the GitHub “Settings” for your repository where you’ll find “Secrets and variables” and click on “Actions”
 - In the “Repository Secrets” section, add “New repository secret” with name FLY_API_TOKEN and the value as just generated.
 - Make sure your pipeline setup is working by making a change to the HTML in the class HomePage and seeing that it changes in the deployed service.
+8. Copy or move the pre-prepared GitHub actions file ".github/workflows/fly-deploy.yml" to ".github/workflows/fly-deploy.yml"
+```bash
+mkdir -p .github/workflows
+git mv fly-deploy.yml .github/workflows/fly-deploy.yml
+```
 
 # Troubleshooting
 

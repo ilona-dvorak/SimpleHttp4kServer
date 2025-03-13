@@ -1,9 +1,7 @@
 package com.oocode
 
 import org.http4k.core.HttpHandler
-import org.http4k.core.Method
 import org.http4k.core.Method.GET
-import org.http4k.core.Method.POST
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.OK
 import org.http4k.routing.bind
@@ -34,7 +32,7 @@ private object HomePage {
 <html>
     <head><script src="https://unpkg.com/htmx.org@2.0.4"></script></head>
     <body>
-        <h1>Simple http4k web service</h1>
+        <h1>Simplse http4k web service</h1>
         <p>This is a minimal web app using http4k</p>
         <ul>
             Try these questions:
