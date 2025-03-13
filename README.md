@@ -55,7 +55,7 @@ fly auth login
 ```
 2. Edit fly.toml so your service gets a unique URL (for example):
 ```bash
-sed -i .back "s/SimpleHttp4kServer/SimpleHttp4kServer-$USER/g" fly.toml
+sed -i .back "s/simplehttp4kserver/simplehttp4kserver-$USER/g" fly.toml
 ```
 3. commit and push this change
 4. "Launch" the app to deploy it for the first time to Fly.io - you only have to do this once
@@ -67,12 +67,15 @@ Answer the questions as below:
 Would you like to copy its configuration to the new app? (y/N)
 y
 
+Would you like to continue in the web UI? (y/N)
+n
+
 Do you want to tweak these settings before proceeding? (y/N)
 n
 ```
 If this has worked, you should see a message like:
 ```text
-Visit your newly deployed app at https://SimpleHttp4kServer-ivan.fly.dev/
+Visit your newly deployed app at https://simplehttp4kserver-ivan.fly.dev/
 ```
 5. deploy to fly with "deploy" instead of "launch"
 ```bash
