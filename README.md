@@ -112,16 +112,16 @@ You can replicate what it is doing on your machine if you have Docker installed.
 
 1. build docker image
 ```bash
-docker build -t SimpleHttp4kServer .
+docker build -t simplehttp4kserver .
 ```
 2. run docker container based on that image
 ```bash
-docker run -p 8124:8124 --name SimpleHttp4kServer SimpleHttp4kServer
+docker run -p 8124:8124 --name simplehttp4kserver simplehttp4kserver
 ```
 3. See it running: http://localhost:8124/
 4. run docker container based on that image
 ```bash
-docker rm -f SimpleHttp4kServer
+docker rm -f simplehttp4kserver
 ```
 5. cleanup
 ```bash
