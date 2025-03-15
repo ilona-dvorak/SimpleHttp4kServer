@@ -78,10 +78,7 @@ Visit your newly deployed app at https://simplehttp4kserver-ivan.fly.dev/
 ```bash
 fly deploy
 ```
-6. Open a browser on the URL of the deployed service
-```bash
-open "https://simplehttp4kserver-$USER.fly.dev/"
-```
+6. Open a browser on the URL of the deployed service - see output of step 2 for url
 7. Set up GitHub Actions CD pipeline:
     - Generate a token for Fly.io
 ```bash
