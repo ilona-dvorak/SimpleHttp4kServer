@@ -89,7 +89,7 @@ fly tokens create deploy -x 999999h
 8. Copy or move the pre-prepared GitHub actions file ".github/workflows/fly-deploy.yml" to ".github/workflows/fly-deploy.yml"
 ```bash
 mkdir -p .github/workflows
-git mv fly-deploy.yml .github/workflows/fly-deploy.yml
+git mv workflows-eg/fly-deploy.yml .github/workflows/fly-deploy.yml
 ```
 9. Commit and push
 10. Make a change to HomePage and commit and push
