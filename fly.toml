@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for simplehttp4kserver-other on 2025-03-13T14:26:51Z
+# fly.toml app configuration file generated for simplehttp4kserver-ape02 on 2025-04-07T14:22:36+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'simplehttp4kserver'
+app = 'simplehttp4kserver-ape02'
 primary_region = 'lhr'
 
 [build]
