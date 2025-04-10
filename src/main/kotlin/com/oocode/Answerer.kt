@@ -5,8 +5,17 @@ class Answerer {
         if (question.contains("What is your name?")) {
             return "Two Sigma"
         }
-        else if (question.contains("Which of the following numbers is the largest: 9, 45, 34?")) {
-            return "45"
+        if (question.contains("Which of the following numbers is the largest")) {
+            val regex = "\\d+".toRegex()
+
+            // Find all matches of the regex in the input string
+            val numbers = regex.findAll(question)
+                .map { it.value.toInt() }  // Convert each match (String) to an Integer
+                .toList()
+
+            // Return the largest number, or null if no numbers were found
+            return numbers.maxOrNull().toString();
+
         }
         else if (question.contains("Which of the following numbers is the largest: 4, 34, 27?")) {
             return "34"
