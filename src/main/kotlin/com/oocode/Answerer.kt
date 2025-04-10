@@ -56,7 +56,19 @@ class Answerer {
                 .takeIf { it.size == 2 }  // Ensure we have exactly two numbers to subtract
                 ?.let { (first, second) ->
                     // Perform subtraction (first - second)
-                    "The result is: ${first - second}"
+                    "${first - second}"
+                } ?: "Could not extract two numbers from the input."
+        }
+        if (question.contains("multiplied")) {
+            val regex = "-?\\d+".toRegex()
+
+            // Extract, validate, multiply, and return the result in a single flow
+            return regex.findAll(question)
+                .map { it.value.toInt() }  // Convert matched digits to integers
+                .toList()
+                .takeIf { it.size == 2 }   // Ensure exactly two numbers are found
+                ?.let { (first, second) ->
+                    "${first * second}"
                 } ?: "Could not extract two numbers from the input."
         }
         else if (question.contains("2")) {
