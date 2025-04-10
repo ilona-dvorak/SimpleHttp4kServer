@@ -31,7 +31,20 @@ class Answerer {
             return numbers.sum().toString();
         }
         if (question.contains("Which of the following numbers is both a square and a cube")) {
-            return extractSquareAndCubeNumbers(question).toString();
+            val regex = "\\d+".toRegex()
+
+            // Extract and filter the numbers in one step and check if they are both square and cube
+            return regex.findAll(question)
+                .map { it.value.toInt() }  // Convert the matched numbers to integers
+                .filter { n ->
+                    // Check if the number is both a square and a cube (i.e., a perfect sixth power)
+                    val root = Math.pow(n.toDouble(), 1.0 / 6.0).toInt()
+                    root.toDouble().pow(6) == n.toDouble()
+                }
+                .toList()  // Convert the result to a List
+                .takeIf { it.isNotEmpty() }  // Ensure the list is not empty
+                ?.joinToString("") // Join numbers as string
+                ?: "No numbers found that are both square and cube."  // If no results, return this message
         }
         else if (question.contains("2")) {
             return "4"
@@ -58,4 +71,25 @@ class Answerer {
         return numbers.filter { isPerfectSixthPower(it) }
             .map { it.toString() }  // Convert the result numbers back to strings
     }
+    fun extractAndCheckSquareAndCube(input: String): List<Int> {
+        // Regular expression to match sequences of digits (numbers) in the string
+        val regex = "\\d+".toRegex()
+
+        // Find all matches of the regex in the input string and convert to a list of integers
+        val numbers = regex.findAll(input)
+            .map { it.value.toInt() }  // Convert the matched numbers to integers
+            .toList()
+
+        // Function to check if a number is a perfect sixth power (both square and cube)
+        fun isPerfectSixthPower(n: Int): Boolean {
+            val root = Math.pow(n.toDouble(), 1.0 / 6.0).toInt()
+            return root.toDouble().pow(6) == n.toDouble()  // Check if root^6 is equal to n
+        }
+
+        // Filter numbers that are both square and cube (i.e., perfect sixth powers)
+        return numbers.filter { isPerfectSixthPower(it) }
+    }
+
+
+
 }
