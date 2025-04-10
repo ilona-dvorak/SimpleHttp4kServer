@@ -33,18 +33,18 @@ class Answerer {
         if (question.contains("Which of the following numbers is both a square and a cube")) {
             val regex = "\\d+".toRegex()
 
-            // Extract and filter the numbers in one step and check if they are both square and cube
+            fun isPerfectSixthPower(n: Int): Boolean {
+                val root = Math.pow(n.toDouble(), 1.0 / 6.0).toInt()
+                return root.toDouble().pow(6).toInt() == n
+            }
+
             return regex.findAll(question)
-                .map { it.value.toInt() }  // Convert the matched numbers to integers
-                .filter { n ->
-                    // Check if the number is both a square and a cube (i.e., a perfect sixth power)
-                    val root = Math.pow(n.toDouble(), 1.0 / 6.0).toInt()
-                    root.toDouble().pow(6) == n.toDouble()
-                }
-                .toList()  // Convert the result to a List
-                .takeIf { it.isNotEmpty() }  // Ensure the list is not empty
-                ?.joinToString("") // Join numbers as string
-                ?: "No numbers found that are both square and cube."  // If no results, return this message
+                .map { it.value.toInt() }
+                .filter(::isPerfectSixthPower)
+                .toList()
+                .takeIf { it.isNotEmpty() }
+                ?.joinToString("")
+                ?: "No numbers found that are both square and cube."
         }
         if (question.contains("minus")) {
             val regex = "-?\\d+".toRegex() // Allows for negative numbers as well
