@@ -71,6 +71,20 @@ class Answerer {
                     "${first * second}"
                 } ?: "Could not extract two numbers from the input."
         }
+        if (question.contains("prime")) {
+
+            val regex = "\\d+".toRegex()
+
+        fun isPrime(n: Int): Boolean = n > 1 && (2..Math.sqrt(n.toDouble()).toInt()).none { n % it == 0 }
+
+        return regex.findAll(question)
+            .map { it.value.toInt() }
+            .filter(::isPrime)
+            .toList()
+            .takeIf { it.isNotEmpty() }
+            ?.joinToString("")
+            ?: "No prime numbers found in the input."
+        }
         else if (question.contains("2")) {
             return "4"
         }
