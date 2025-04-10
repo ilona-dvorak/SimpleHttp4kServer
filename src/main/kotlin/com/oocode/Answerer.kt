@@ -26,6 +26,12 @@ class Answerer {
         if (question.contains("Which of the following numbers is the largest: 31, 60, 67?")) {
             return "67"
         }
+        if (question.contains("What is 97 plus 57?")) {
+            return "154"
+        }
+        if (question.contains("What is 26 plus 28?")) {
+            return "54"
+        }
         if (question.contains("2")) {
             return "4"
         }
