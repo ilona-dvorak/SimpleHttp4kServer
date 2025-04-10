@@ -71,7 +71,7 @@ class Answerer {
                     "${first * second}"
                 } ?: "Could not extract two numbers from the input."
         }
-        if (question.contains("prime")) {
+        if (question.contains("primes")) {
 
             val regex = "\\d+".toRegex()
 
