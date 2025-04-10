@@ -70,16 +70,29 @@ class Answerer {
                 } ?: "Could not extract two numbers from the input."
         }
         if (question.contains("power")) {
-            val regex = "\\d+".toRegex()
-            val numbers = regex.findAll(question).map { it.value.toBigInteger() }.toList()
+            val cleaned = question.lowercase().replace(",", "")
+            val powerRegex = Regex("(\\d+)\\s+to the power of\\s+(\\d+)")
 
-            return if ("to the power of" in question.lowercase() && numbers.size == 2)
-                try {
-                    "${numbers[0].pow(numbers[1].toInt())}"
-                } catch (e: Exception) {
-                    "The result is too large to compute."
+            val match = powerRegex.find(cleaned)
+
+            return if (match != null) {
+                val (baseStr, expStr) = match.destructured
+                val base = baseStr.toBigInteger()
+                val exponent = expStr.toIntOrNull()
+
+                if (exponent != null) {
+                    try {
+                        val result = base.pow(exponent)
+                        "$result"
+                    } catch (e: Exception) {
+                        "The result is too large to compute."
+                    }
+                } else {
+                    "Invalid exponent value."
                 }
-            else "Could not extract base and exponent properly."
+            } else {
+                "Could not parse a valid 'to the power of' expression."
+            }
         }
         if (question.contains("primes")) {
 
