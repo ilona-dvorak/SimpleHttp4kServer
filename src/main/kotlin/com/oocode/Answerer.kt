@@ -20,15 +20,13 @@ class Answerer {
 
         }
         if (question.contains("plus")) {
-            val regex = "\\d+".toRegex()
+            val regex = "-?\\d+".toRegex()
+            val numbers = regex.findAll(question).map { it.value.toInt() }.toList()
 
-            // Find all matches of the regex in the input string
-            val numbers = regex.findAll(question)
-                .map { it.value.toInt() }  // Convert each match (String) to an Integer
-                .toList()
-
-            // Return the largest number, or null if no numbers were found
-            return numbers.sum().toString();
+            return if ("plus" in question.lowercase() && numbers.size >= 2)
+                "${numbers.sum()}"
+            else
+                "Could not find a valid 'plus' expression with at least two numbers."
         }
         if (question.contains("Which of the following numbers is both a square and a cube")) {
             val regex = "\\d+".toRegex()
