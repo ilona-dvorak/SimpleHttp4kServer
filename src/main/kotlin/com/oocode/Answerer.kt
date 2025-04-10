@@ -46,6 +46,19 @@ class Answerer {
                 ?.joinToString("") // Join numbers as string
                 ?: "No numbers found that are both square and cube."  // If no results, return this message
         }
+        if (question.contains("minus")) {
+            val regex = "-?\\d+".toRegex() // Allows for negative numbers as well
+
+            // Extract the numbers and perform subtraction in one step
+            return regex.findAll(question)
+                .map { it.value.toInt() }  // Convert the matched numbers to integers
+                .toList()  // Convert the result to a List
+                .takeIf { it.size == 2 }  // Ensure we have exactly two numbers to subtract
+                ?.let { (first, second) ->
+                    // Perform subtraction (first - second)
+                    "The result is: ${first - second}"
+                } ?: "Could not extract two numbers from the input."
+        }
         else if (question.contains("2")) {
             return "4"
         }
